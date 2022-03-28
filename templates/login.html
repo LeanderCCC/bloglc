@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+
+{% if session["fehler"] %}
+
+<h1 style="display: flex; justify-content: center; color:black; margin:21.5px">Passwort oder Name falsch!</h1>
+
+{% endif %}
+
+<form method="POST"style="display: flex; justify-content: center; margin:21.5px">
+    <input name="name"placeholder="Name"/>
+    <input name="password"placeholder="Password"type="password"/>
+    <button href="/">Login</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="page">
+        <header class="page-header">
+            <div class="header-navigation header-navigation-inner">
+                <h1 class="ce_rsce_tao_logo logo">
+                    <a>Blog</a>
+                </h1>
+    
+                <nav class="mod_rocksolid_mega_menu main-navigation block" id="main-navigation" itemtype="http://schema.org/SiteNavigationElement">
+                    <ul class="level_1">
+                        <li class="submenu">
+                            <a href="/" class="submenu">Startseite</a>
+                        </li>
+                        {% if session["loggedIn"]%}
+                            <li class="submenu">
+                                <a href="/own" class="submenu">Eigener Blog</a>
+                            </li>
+                            <li class="submenu">
+                                <a href="/write" class="submenu">Blogeintrag schreiben</a>
+                            </li>
+                        {% endif %}
+                        <li class="submenu">
+                            {% if session["loggedIn"] %}
+                                <a href="/logout" class='submenu'>Logout</a>
+                            {% else %}
+                                    <a href="/login" class='submenu'>Login</a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="/register" class='submenu'>Registrieren</a>    
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        {% block main %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Blog
+{% endblock %}
+
+{% block main %}
+
+<table>
+    {% for row in rows %}
+    <tr>
+        <td class="data">
+            <h3>{{ row[1] }}</h3>
+            <h3>{{ row[2] }}</h3>
+        </td>
+        <td>
+            <textarea class='text'readonly>{{ row[3] }}</textarea>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
